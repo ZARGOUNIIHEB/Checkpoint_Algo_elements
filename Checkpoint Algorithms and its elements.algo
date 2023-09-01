@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class SentenceReader {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Voulez vous introduire votre phrase: ");
+        String sentence = scanner.nextLine();
+
+        int letterCount = 0;
+        int wordCount = 0;
+        int vowelCount = 0;
+
+        for (char ch : sentence.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                letterCount++;
+            }
+
+            if (Character.isWhitespace(ch)) {
+                wordCount++;
+            }
+
+            if ("AEIOUaeiou".indexOf(ch) != -1) {
+                vowelCount++;
+            }
+        }
+
+        wordCount++;
+
+        System.out.println("Number of letters: " + letterCount);
+        System.out.println("Number of words: " + wordCount);
+        System.out.println("Number of vowels: " + vowelCount);
+
+        scanner.close();
+    }
+}
